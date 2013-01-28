@@ -1,13 +1,12 @@
 ---
 en:
-  hello: "Hello world"
   choices:
     rock: "Rock"
     paper: "Paper"
     scissors: "Scissors"
   game:
     result:
-  	  win: "You have won!"
-  	  lose: "You have lost!"
-  	  tie: "You have tied!"
-  	  pick: "Please pick a choice"
+      win: "You have won!"
+      lose: "You have lost!"
+      tie: "You have tied!"
+      pick: "Please pick a choice"

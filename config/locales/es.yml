@@ -1,0 +1,12 @@
+---
+es:
+  choices:
+    rock: "Roca"
+    paper: "Papier"
+    scissors: "Scissoros"
+  game:
+    result:
+      win: "Gagne!"
+      lose: "Perdu!"
+      tie: "Pas gagne et pas pedu!"
+      pick: "Choisi quelque chose"
