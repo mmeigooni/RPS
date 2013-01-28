@@ -1,53 +1,85 @@
+# class Winning 
 
-class Winning 
-	def Winning.outcome_pics
+# 	def Winning.outcome_words
+# 		if @user_choice == @comp_choice
+# 			win_lose_draw = "It's a tie."
+# 		elsif @user_choice == "rock" && @comp_choice == "scissors"
+# 			win_lose_draw = "You win!"
+# 		elsif @user_choice == "paper" && @comp_choice == "rock"
+# 			win_lose_draw = "You win!"
+# 		elsif @user_choice == "scissors" && @comp_choice == "paper"
+# 			win_lose_draw = "You win!"
+# 		else
+# 			win_lose_draw = "You lose :("
+# 		end
 
-		@options = ["rock", "paper", "scissors"]
-		@comp_choice = @options.shuffle[0]
-		@user_choice = params["choose"]
-		@pic_urls = {"rock" => "http://www.cspp52553.com/assets/rps/rock.jpg", "paper" => "http://www.cspp52553.com/assets/rps/paper.png", 
-			"scissors" => "http://www.cspp52553.com/assets/rps/scissors.jpg"}
-		@some_pics = [@pic_urls[@user_choice], @pic_urls[@comp_choice]]
+# 		return win_lose_draw
+# 	end
+
+# end
 
 
-		if @user_choice == nil
-			array_of_pics = [@pic_urls["rock"], @pic_urls["paper"], @pic_urls["scissors"]]
+class Choice
+  include Comparable
+
+end
+
+class InvalidChoiceError < StandardError; end
+
+class Rock < Choice
+
+	def <=>(other)
+		if other.is_a? Rock
+			0
+		elsif other.is_a? Paper
+			-1
+		elsif other.is_a? Scissors
+			1
 		else
-			array_of_pics = @some_pics
+			raise InvalidChoiceError
 		end
-
-		return array_of_pics
-	end
-
-	def Winning.outcome_words
-		if @user_choice == @comp_choice
-			win_lose_draw = "It's a tie."
-		elsif @user_choice == "rock" && @comp_choice == "scissors" ||
-				@user_choice == "paper" && @comp_choice == "rock" ||
-				@user_choice == "scissors" && @comp_choice == "paper"
-			win_lose_draw == "You win!"
-		else
-			win_lose_draw == "You lose :("
-		end
-
-		return win_lose_draw
 	end
 
 end
 
 
 
+class Paper < Choice
 
-# @pics = Winning.outcome_pics
+	def <=>(other)
+		if other.is_a? Rock
+			1
+		elsif other.is_a? Paper
+			0
+		elsif other.is_a? Scissors
+			-1
+		else
+			raise InvalidChoiceError
+		end
+	end
 
-# if @user_choice != nil
-# 	@result = Winning.outcome_words
-# else
-# 	@result = "Let's play! Choose one:"
-# end
+end
 
-# puts @pics.inspect
-# puts @result
+
+
+class Scissors < Choice
+
+	def <=>(other)
+		if other.is_a? Rock
+			1
+		elsif other.is_a? Paper
+			-1
+		elsif other.is_a? Scissors
+			0
+		else
+			raise InvalidChoiceError
+		end
+	end
+
+end
+
+
+
 
 
 
