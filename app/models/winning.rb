@@ -1,4 +1,5 @@
-class InvalidChoiceError < StandardError; end
+class InvalidChoiceError < StandardError
+end
 
 class Choice
   RESULTS = {
