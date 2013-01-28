@@ -3,5 +3,5 @@
 <h4><%= t "game.result.#{@result}" %></h4>
 
 <%@array_of_pics.each do |urls|%>
-	<img src=<%= urls %> width = '200' length = '200'>
+	<img src=<%= "/assets/#{urls}" %> width = '200' length = '200'>
 <%end%>
