@@ -1,6 +1,3 @@
-class InvalidChoiceError < StandardError
-end
-
 class Choice
   RESULTS = {
     rock: { paper: :loss, scissors: :win },
